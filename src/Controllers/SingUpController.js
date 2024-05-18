@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const SECRET_KEY = process.env.SECRET_KEY;
 
 class SignUpController {
     // [POST] /signup
@@ -23,11 +25,11 @@ class SignUpController {
 
         const data = {
             user: {
-                id: user.id,
+                id: user._id,
             },
         };
 
-        const token = jwt.sign(data, 'secret_ecom');
+        const token = jwt.sign(data, SECRET_KEY);
         res.json({
             success: true,
             token,

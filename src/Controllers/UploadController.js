@@ -1,9 +1,11 @@
+const port = process.env.PORT || 4000;
+
 class UploadController {
     // [POST] /upload
     async upload(req, res) {
         res.json({
             success: 1,
-            image_url: `http://localhost:4000/images/${req.file.filename}`,
+            image_url: `http://localhost:${port}/images/${req.file.filename}`,
         });
     }
 }

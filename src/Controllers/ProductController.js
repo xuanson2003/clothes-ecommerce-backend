@@ -10,16 +10,7 @@ class ProductController {
 
     // [POST] /product/addproduct
     async addProduct(req, res) {
-        let products = await Product.find({});
-        let id = 1;
-        if (products.length > 0) {
-            let last_product_array = products.slice(-1);
-            let last_product = last_product_array[0];
-            id = last_product.id + 1;
-        }
-
         const product = new Product({
-            id: id,
             name: req.body.name,
             image: req.body.image,
             category: req.body.category,
@@ -37,7 +28,7 @@ class ProductController {
 
     // [DELETE] /product/removeproduct
     async removeProduct(req, res) {
-        await Product.findOneAndDelete({ id: req.body.id });
+        await Product.findOneAndDelete({ _id: req.body.id });
         console.log('removed');
         res.json({
             success: true,

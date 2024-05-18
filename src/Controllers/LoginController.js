@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const SECRET_KEY = process.env.SECRET_KEY;
 
 class LoginController {
     // [POST] /login
@@ -10,10 +12,10 @@ class LoginController {
             if (passCompare) {
                 const data = {
                     user: {
-                        id: user.id,
+                        id: user._id,
                     },
                 };
-                const token = jwt.sign(data, 'secret_ecom');
+                const token = jwt.sign(data, SECRET_KEY);
                 res.json({ success: true, token });
             } else {
                 res.json({ success: false, errors: 'Wrong Password' });
