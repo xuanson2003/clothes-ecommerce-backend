@@ -1,6 +1,5 @@
 const express = require('express');
 
-const loginRoute = require('./login.route');
 const signupRoute = require('./signup.route');
 const productRoute = require('./product.route');
 const cartRoute = require('./cart.route');
@@ -10,7 +9,6 @@ const uploadRoute = require('./upload.route');
 
 function route(app) {
     app.use('/images', express.static('./src/upload/images'));
-    app.use('/login', loginRoute);
     app.use('/signup', signupRoute);
     app.use('/product', productRoute);
     app.use('/cart', cartRoute);
