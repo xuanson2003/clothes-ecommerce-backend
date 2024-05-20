@@ -4,11 +4,18 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 const db = require('./config/db');
 const route = require('./routes/index.route');
 
 db.connect();
+
+const corsOptions = {
+    origin: 'apiclothes.xsubuntu.click',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
