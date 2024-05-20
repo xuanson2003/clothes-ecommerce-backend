@@ -4,7 +4,7 @@ const loginController = require('../controllers/LoginController');
 const signupController = require('../controllers/SingUpController');
 const productController = require('../controllers/ProductController');
 const cartController = require('../controllers/CartController');
-const poppular = require('../controllers/PopularController');
+const poppularController = require('../controllers/PopularController');
 const newCollectionsController = require('../controllers/NewCollectionsController');
 const uploadController = require('../controllers/UploadController');
 
@@ -31,7 +31,7 @@ function route(app) {
     app.delete('/cart/removefromcart', fetchUser, cartController.removeFromCart);
 
     // popular
-    app.get('/popular/women', poppular.getPoppularInWomen);
+    app.get('/popular/women', poppularController.getPoppularInWomen);
 
     // new collections
     app.get('/newcollections', newCollectionsController.getNewCollections);
