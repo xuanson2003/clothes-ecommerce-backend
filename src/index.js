@@ -11,7 +11,7 @@ const route = require('./routes/index.route');
 db.connect();
 
 const corsOptions = {
-    origin: 'apiclothes.xsubuntu.click',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
 };
 
