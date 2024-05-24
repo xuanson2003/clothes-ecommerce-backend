@@ -18,10 +18,10 @@ class LoginController {
                 const token = jwt.sign(data, SECRET_KEY);
                 res.json({ success: true, token });
             } else {
-                res.json({ success: false, errors: 'Wrong Password' });
+                res.json({ success: false, errorField: 'password' });
             }
         } else {
-            res.json({ success: false, errors: 'Wrong Email Id' });
+            res.json({ success: false, errorField: 'email' });
         }
     }
 }
