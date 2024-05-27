@@ -11,7 +11,7 @@ const route = require('./routes/index.route');
 db.connect();
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'shopper.xsubuntu.click'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
 };
 
