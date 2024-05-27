@@ -17,12 +17,23 @@ class CartController {
         res.send('Added');
     }
 
+    // [DELETE] /cart/removeOneItem
+    async removeOneItem(req, res) {
+        console.log('removed', req.body.itemId);
+        let userData = await User.findOne({ _id: req.user.id });
+        if (userData.cartData[req.body.itemId] > 0) {
+            userData.cartData[req.body.itemId] -= 1;
+            await User.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+        }
+        res.send('Removed');
+    }
+
     // [DELETE] /cart/removefromcart
     async removeFromCart(req, res) {
         console.log('removed', req.body.itemId);
         let userData = await User.findOne({ _id: req.user.id });
         if (userData.cartData[req.body.itemId] > 0) {
-            userData.cartData[req.body.itemId] -= 1;
+            userData.cartData[req.body.itemId] = 0;
             await User.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
         }
         res.send('Removed');
