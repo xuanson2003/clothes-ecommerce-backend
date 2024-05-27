@@ -32,7 +32,7 @@ function route(app) {
     app.delete('/cart/removefromcart', fetchUser, cartController.removeFromCart);
 
     // popular
-    app.get('/popular/:category', poppularController.getPoppular);
+    app.post('/popular/:category', poppularController.getPoppular);
 
     // new collections
     app.get('/newcollections', newCollectionsController.getNewCollections);
