@@ -28,7 +28,7 @@ function route(app) {
     // cart
     app.post('/cart/getcart', fetchUser, cartController.getCart);
     app.post('/cart/addtocart', fetchUser, cartController.addToCart);
-    app.post('/cart/removeOneItem', fetchUser, cartController.removeOneItem);
+    app.delete('/cart/removeOneItem', fetchUser, cartController.removeOneItem);
     app.delete('/cart/removefromcart', fetchUser, cartController.removeFromCart);
 
     // popular
